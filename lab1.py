@@ -19,11 +19,11 @@ T = np.linspace(1, 15, 1000)
 
 Radius = 4
 
-x = 1 + 1.5 * sp.sin(12 * t)
-y = 1.25 * t + 0.2 * sp.cos(12 * t)
+r = 1 + 1.5 * sp.sin(12 * t)
+phi = 1.25 * t + 0.2 * sp.cos(12 * t)
 
-#x = r * sp.cos(phi)
-#y = r * sp.sin(phi)
+x = r * sp.cos(phi)
+y = r * sp.sin(phi)
 Vx = sp.diff(x, t)
 Vy = sp.diff(y, t)
 V = sp.sqrt(Vx ** 2 + Vy ** 2)
@@ -38,8 +38,8 @@ VY = np.zeros_like(T)
 
 # заполнение массивов
 for i in np.arange(len(T)):
-    #R[i] = sp.Subs(r, t, T[i])
-    #PHI[i] = sp.Subs(phi, t, T[i])
+    R[i] = sp.Subs(r, t, T[i])
+    PHI[i] = sp.Subs(phi, t, T[i])
     X[i] = sp.Subs(x, t, T[i])
     Y[i] = sp.Subs(y, t, T[i])
     VX[i] = sp.Subs(Vx, t, T[i])
